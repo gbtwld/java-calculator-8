@@ -7,7 +7,7 @@ public class Validator {
 
 
     private static final String CUSTOM_SEPARATOR_PREFIX = "//";
-    private static final String CUSTOM_SEPARATOR_POSTFIX = "\n";
+    private static final String CUSTOM_SEPARATOR_POSTFIX = "\\n";
 
     public static void validate(String input) {
         if (input == null) {
@@ -20,13 +20,13 @@ public class Validator {
         }
 
         if (trimmed.startsWith(CUSTOM_SEPARATOR_PREFIX)) {
-            validateCustomDelimiterInput(trimmed);
+            validateCustomSeparatorInput(trimmed);
         } else {
             validateBasicInput(trimmed);
         }
     }
 
-    private static void validateCustomDelimiterInput(String input) {
+    private static void validateCustomSeparatorInput(String input) {
         // "//" 이후 반드시 "\n"이 포함되어야 함
         int newlineIndex = input.indexOf(CUSTOM_SEPARATOR_POSTFIX);
         if (newlineIndex == -1) {
@@ -34,7 +34,7 @@ public class Validator {
         }
 
         String delimiterPart = input.substring(2, newlineIndex);
-        String numbersPart = input.substring(newlineIndex + 1);
+        String numbersPart = input.substring(newlineIndex + CUSTOM_SEPARATOR_POSTFIX.length());
 
         // 구분자는 반드시 한 글자
         if (delimiterPart.length() != 1) {
