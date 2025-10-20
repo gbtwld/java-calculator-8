@@ -7,6 +7,11 @@ public class Application {
         String input = CLI.read();
 
         Validator.validate(input);
+        long[] parsed = Parser.parse(input);
+
+        for (long l : parsed) {
+            System.out.println(l);
+        }
 
         CLI.printResult(6L);
     }
