@@ -3,11 +3,11 @@ package calculator;
 public class Application {
     public static void main(String[] args) {
 
-        CLI cli = new CLI();
+        CLI.prompt();
+        String input = CLI.read();
 
-        cli.prompt();
-        String input = cli.read();
+        Validator.validate(input);
 
-        cli.printResult(6L);
+        CLI.printResult(6L);
     }
 }

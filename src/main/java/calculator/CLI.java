@@ -4,14 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class CLI {
 
-    public CLI() {
-    }
-
-    public void prompt() {
+    public static void prompt() {
         System.out.println("덧셈할 문자열을 입력해 주세요.");
     }
 
-    public String read() {
+    public static String read() {
         String input = Console.readLine();
 
         if (input.isEmpty()) {
@@ -21,7 +18,7 @@ public class CLI {
         return input;
     }
 
-    public void printResult(long result) {
+    public static void printResult(long result) {
         System.out.println("결과 : "  + result);
     }
 }
