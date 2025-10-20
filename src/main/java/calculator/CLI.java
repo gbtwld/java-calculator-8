@@ -12,7 +12,13 @@ public class CLI {
     }
 
     public String read() {
-        return Console.readLine();
+        String input = Console.readLine();
+
+        if (input.isEmpty()) {
+            return "0";
+        }
+
+        return input;
     }
 
     public void printResult(long result) {
