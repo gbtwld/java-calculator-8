@@ -9,10 +9,7 @@ public class Application {
         Validator.validate(input);
         long[] parsed = Parser.parse(input);
 
-        for (long l : parsed) {
-            System.out.println(l);
-        }
-
-        CLI.printResult(6L);
+        long result = Calculator.sum(parsed);
+        CLI.printResult(result);
     }
 }
